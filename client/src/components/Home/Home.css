@@ -1,0 +1,87 @@
+.home__parallax {
+    /* The image used */
+    background-image: url("https://beerponghannover.de/wp-content/uploads/2018/10/beer_pong_hannover_main.jpg");
+  
+    /* Set a specific height */
+    /* height: 500px; */
+    min-height: 50%; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.home_content {
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home_h1 {
+  text-align: center;
+  color:#efefef;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight:200;
+  font-style: normal;
+  padding: 0;
+  padding-bottom:5px;
+  background: linear-gradient(to right,rgba(0, 0, 0,0) 20%,rgb(255, 255, 255) 50%, rgba(0, 0, 0, 0) 80%);
+  background-size:60% 1px;
+  background-repeat: no-repeat;
+  background-position:50% 85%;
+  text-shadow:0;
+  font-size: 1rem
+}
+
+/* .home_h1:after{
+  content: "";
+  height: 1px;
+  background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(147,147,147,1) 50%,rgba(0,0,0,0) 100%);
+  
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 10px;
+} */
+
+.home_paragraph {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .home_paragraph p {
+    width: 400px;
+    padding: 0 5rem;
+  }
+.home_content a {
+  font-family: "Nunito";
+  transition:all 0.5s linear;
+  color:#efefef;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight:200;
+  font-style: normal;
+  padding: 1.2rem 1.2rem;
+  border: 1px solid;
+}
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+
+.homeFlex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.homeFlex p {
+  width: 500px;
+  padding: 0 1.5rem;
+}

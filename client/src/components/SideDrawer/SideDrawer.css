@@ -1,0 +1,36 @@
+.side-drawer {
+    height: 100%;
+    background-color:#2d2f2f;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 200;
+    transform: translateX(-120%);
+    transition: transform 0.2s ease-out;
+}
+
+.side-drawer.open{
+    transform: translateX(0);
+}
+
+.side-drawer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.side-drawer li {
+    padding: 1.0rem 0;
+}
+
+
+@media (min-width: 930px){
+    .side-drawer{
+        display: none;
+    }
+}

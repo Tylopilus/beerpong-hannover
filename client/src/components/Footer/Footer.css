@@ -1,0 +1,18 @@
+.footer-main{
+    margin-top: 50px;
+    text-align: center;
+    background-color: #313536;
+    color: #efefef;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    font-size: 1.8rem
+}
+
+.footer-item {
+    padding: 0 1rem
+}

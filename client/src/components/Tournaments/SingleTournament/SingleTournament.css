@@ -1,0 +1,21 @@
+.tournamentList {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.tournamentName {
+    float: left;
+}
+
+.tournamentDate {
+    float:right;
+}
+
+.clear {
+    clear: both;
+}
+
+.tournamentContent {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}

@@ -1,0 +1,32 @@
+html {
+  height: 100%
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", "Open Sans", "Times New Roman";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  background: #252829;
+  color: #efefef;
+  height: 100%
+}
+
+ #root {
+  height: 100%;
+} 
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+p {
+  font-family: "Open Sans", "Times New Roman"
+}
+
+.footer {
+  text-align: center;
+}
+
