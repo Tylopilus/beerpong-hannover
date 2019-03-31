@@ -44,6 +44,7 @@ class App extends React.Component{
             <NavBar clickHandler={this.DrawerToggleClickHandler}/>
             <SideDrawer show={this.state.sideDrawerOpen} clickHandler={this.DrawerToggleClickHandler}/>
             {backdrop}
+            
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/turniere" component={Tournament} />
