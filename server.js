@@ -6,9 +6,11 @@ app.use(cors())
 app.use(express.json())
 
 const customers = [
-    {id: 1, name: "App", url: "/app", edit: false},
-    {id: 2, name: "Info", url: "/info", edit: false},
-    {id: 3, name: "About", url: "/about", edit: false}
+    {id: 1, name: "Home", url: "/", edit: false},
+    {id: 2, name: "Turniere", url: "/turniere", edit: false},
+    {id: 3, name: "Regelwerk", url: "/regelwerk", edit: false},
+    {id: 4, name: "Verein", url: "/verein", edit: false},
+    {id: 5, name: "Kontakt", url: "/kontakt", edit: false},
 ]
 app.get('/api/urls', (req, res) => {
     res.json({data: customers})
