@@ -11,7 +11,7 @@ class SideDrawer extends React.Component {
             // lazy stuff since I dont have a server for my API yet. If so, uncomment componendDidMount()
             // loading: false,
             // list: []
-            loading: true,
+            loading: false,
             list: [
                {id: 1, name: "Home", url: "/", edit: false},
                {id: 2, name: "Turniere", url: "/turniere", edit: false},
