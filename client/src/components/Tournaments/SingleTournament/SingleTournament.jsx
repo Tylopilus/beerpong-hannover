@@ -20,12 +20,14 @@ class SingleTournament extends React.Component{
         let visible = this.state.visible ? "150px" : "0px"
         return(
             <div>
-                <div className="tournamentList"  onClick={(e) => {this.clickHandler(e)} }>
-                    <div className="tournamentName">
-                    Hanomacken Tournier 2019 #5
-                    </div>
-                    <div className="tournamentDate">
-                    29.03.2019
+                <div className="tournamentList" >
+                    <div className="tournamentInfo" onClick={(e) => {this.clickHandler(e)}}>
+                        <div className="tournamentName">
+                        Hanomacken Tournier 2019 #5
+                        </div>
+                        <div className="tournamentDate">
+                        29.03.2019
+                        </div>
                     </div>
                     <div className="clear" />
                     <div className="tournamentContent" style={{maxHeight: visible, paddingTop: "10px"}}>
