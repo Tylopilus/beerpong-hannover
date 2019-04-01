@@ -8,19 +8,28 @@ class NavBar extends React.Component {
         super()
 
         this.state={
-            loading: false,
-            list: []
+            // lazy stuff since I dont have a server for my API yet. If so, uncomment componendDidMount()
+            // loading: false,
+            // list: []
+             loading: true,
+             list: [
+                {id: 1, name: "Home", url: "/", edit: false},
+                {id: 2, name: "Turniere", url: "/turniere", edit: false},
+                {id: 3, name: "Regelwerk", url: "/regelwerk", edit: false},
+                {id: 4, name: "Verein", url: "/verein", edit: false},
+                {id: 5, name: "Kontakt", url: "/kontakt", edit: false},
+            ]
         }
     }
 
     componentDidMount(){
-        this.setState({loading: true})
-        fetch("/api/urls")
-        .then(res => res.json())
-        .then(res => this.setState({
-            loading: false, 
-            list: res.data}))
-        .catch(error => console.log("Cannot Fetch Menu Items", error))
+        // this.setState({loading: true})
+        // fetch("/api/urls")
+        // .then(res => res.json())
+        // .then(res => this.setState({
+        //     loading: false, 
+        //     list: res.data}))
+        // .catch(error => console.log("Cannot Fetch Menu Items", error))
 
 
         //  this.lookupInterval = setInterval(() => {
