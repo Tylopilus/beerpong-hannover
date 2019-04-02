@@ -31,6 +31,7 @@ class SingleTournament extends React.Component{
                     </div>
                     <div className="clear" />
                     <div className="tournamentContent" style={{maxHeight: visible, paddingTop: "10px"}}>
+                        {/* TODO: Fetch this from a database via API Call */}
                         <table>
                             <tbody>
                                 <tr>
@@ -52,7 +53,7 @@ class SingleTournament extends React.Component{
                                 </tr>
                             </tbody>
                         </table>
-                        <button onClick={console.log("anmelden")}>Jetzt anmelden</button>
+                        <button>Jetzt anmelden</button>
                     </div>
                 </div>
                 <hr />

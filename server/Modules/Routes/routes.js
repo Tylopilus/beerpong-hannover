@@ -1,0 +1,5 @@
+// const controller = require('../Controllers/AuthenticationControllers')
+
+module.exports = (app) => {
+    app.get('/status', (req, res) => res.send({message: 'Hello World'}))
+}
