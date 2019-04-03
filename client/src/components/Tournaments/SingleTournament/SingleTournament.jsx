@@ -23,7 +23,7 @@ class SingleTournament extends React.Component{
                 <div className="tournamentList" >
                     <div className="tournamentInfo" onClick={(e) => {this.clickHandler(e)}}>
                         <div className="tournamentName">
-                        Hanomacken Tournier 2019 #5
+                        {this.props.name}
                         </div>
                         <div className="tournamentDate">
                         29.03.2019
@@ -31,7 +31,7 @@ class SingleTournament extends React.Component{
                     </div>
                     <div className="clear" />
                     <div className="tournamentContent" style={{maxHeight: visible, paddingTop: "10px"}}>
-                        {/* TODO: Fetch this from a database via API Call */}
+                        {/* TODO: Fetch this from a database via /tournament/:id API Call */}
                         <table>
                             <tbody>
                                 <tr>
@@ -45,7 +45,7 @@ class SingleTournament extends React.Component{
     
                                 <tr>
                                     <td>Teilnehmer:</td>
-                                    <td>20/48</td>
+                                    <td>{this.props.currPlayerCount}/{this.props.maxPlayerCount}</td>
                                 </tr>
                                 <tr>
                                     <td>Eintritt:</td>
