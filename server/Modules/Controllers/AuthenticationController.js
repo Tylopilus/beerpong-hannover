@@ -52,7 +52,6 @@ module.exports = {
             }
             
             const isPasswordValid = await user.comparePassword(password)
-            console.log(isPasswordValid)
             if(!isPasswordValid){
                 return res.status(403).send({
                     error: 'The login information was incorrect'
@@ -85,6 +84,7 @@ module.exports = {
     },
     async getTournaments (req, res) {
         try {
+            //return only Tournament Name and ID
             const tournament = await Tournament.findAll()
             res.send({
                 tournaments: tournament
@@ -93,6 +93,27 @@ module.exports = {
         catch {
             res.status(500).send({
                 error: 'Could not fetch all Tournaments from DB'
+            })
+        }
+    },
+
+    //implement getTournamentsbyID
+    async getTournamentsByID(req, res){
+        try {
+            const tournament = await Tournament.findOne({
+                where: {
+                    id: req.params.id
+                }
+            })
+            if(!tournament)
+                return res.status(500).send({
+                    error: 'Could not find tournament'
+                })
+            res.send(tournament)
+        }
+        catch{
+            res.send({
+                error: 'Oops something went wrong with fetich tournaments'
             })
         }
     }

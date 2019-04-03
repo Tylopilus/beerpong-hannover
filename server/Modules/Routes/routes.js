@@ -17,6 +17,10 @@ module.exports = (app) => {
 
     app.post('/login', controller.login)
 
-    app.get('/tournaments', controller.getTournaments)
     app.post('/tournaments', controller.postTournament)
+    app.get('/tournaments', controller.getTournaments)
+    //TODO: implement this
+    app.get('/tournaments/:id', controller.getTournamentsByID)
+    
+
 }
