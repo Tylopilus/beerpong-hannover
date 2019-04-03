@@ -51,14 +51,6 @@ app.use(express.json())
 require('./Modules/Routes/routes')(app)
 
 
-
-app.post('/api/urls/:id', (req, res) => {
-    console.log(req.params.id)
-    return res.send(req.params.id)
-})
-
-
-
 sequelize.sync()
     .then(() => app.listen(config.Port, () => console.log(`Server started on port ${config.Port}`)))
 

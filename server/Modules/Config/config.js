@@ -9,5 +9,9 @@ module.exports = {
             host: process.env.host || 'localhost',
             storage: 'beerponghannover_db.sqlite'
         }
+    },
+
+    authentication: {
+        jwtSecret: process.env.JWT_SECRET || "secret"
     }
 }
