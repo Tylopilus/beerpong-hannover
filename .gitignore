@@ -6,7 +6,7 @@
 /.pnp
 .pnp.js
 /server/beerponghannover_db.sqlite
-
+/.vscode
 # testing
 /coverage
 
