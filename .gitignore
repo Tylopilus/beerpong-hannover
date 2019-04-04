@@ -13,6 +13,7 @@
 # production
 /build
 /client/build
+/server/Modules/Config/AuthenticationKey.js
 
 # misc
 .DS_Store

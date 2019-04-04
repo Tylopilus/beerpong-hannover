@@ -1,3 +1,4 @@
+const SecretKey = require('./AuthenticationKey')
 module.exports = {
     Port: process.env.PORT || 5001,
     db: {
@@ -12,6 +13,6 @@ module.exports = {
     },
 
     authentication: {
-        jwtSecret: process.env.JWT_SECRET || "secret"
+        jwtSecret: process.env.JWT_SECRET || SecretKey
     }
 }
