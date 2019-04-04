@@ -51,6 +51,6 @@ app.use(express.json())
 require('./Modules/Routes/routes')(app)
 
 
-sequelize.sync()
+sequelize.sync({force: true})
     .then(() => app.listen(config.Port, () => console.log(`Server started on port ${config.Port}`)))
 
