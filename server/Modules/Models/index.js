@@ -19,12 +19,15 @@ fs
         db[model.name] = model
     })
 
+
+console.log(Object.keys(db))
+
 Object.keys(db).forEach(function(modelName) {
     if ("classMethods" in db[modelName].options) {
         if("associate" in db[modelName].options["classMethods"])
             db[modelName].options.classMethods.associate(db);
     }
-    });
+});
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize

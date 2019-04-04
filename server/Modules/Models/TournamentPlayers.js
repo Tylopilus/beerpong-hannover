@@ -9,9 +9,10 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         {
+            // Creates Option "ClassMethods" with entry "associate" for relations
             // tableName: 'TournamentPlayers',
             // underscored: false,
-            timestamps: true,
+            //timestamps: true,
             classMethods: {
                 associate : function(models) {
                     TournamentPlayers.belongsTo(models.Tournament, {
