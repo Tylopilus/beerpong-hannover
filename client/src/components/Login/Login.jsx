@@ -34,7 +34,7 @@ class Login extends React.Component {
 
     render(){
         return(
-            <div style={{paddingTop: "56px"}}>
+            <div style={{marginTop: "56px", height: "100vh"}}>
                 <form onSubmit={this.submitHandler}>
                 <input type="text" name="email" value={this.state.email} placeholder="email" onChange={this.changeHandler}/>
                 <br/>

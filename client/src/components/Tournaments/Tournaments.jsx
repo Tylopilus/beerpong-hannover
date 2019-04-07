@@ -22,7 +22,7 @@ class Tournaments extends React.Component {
     
     render(){
         return(
-            <React.Fragment>
+            <div style={{height: "100%"}}>
                 <div className="tournaments_parallax"></div>
                 <div className="tournament_content">
                     <h1>Anstehende Turniere</h1>
@@ -51,7 +51,7 @@ class Tournaments extends React.Component {
                     </div>
                     <hr />
                 </div>
-            </React.Fragment>
+            </div>
         )
     }
 

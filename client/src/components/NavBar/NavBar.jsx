@@ -18,6 +18,7 @@ class NavBar extends React.Component {
                 {id: 3, name: "Regelwerk", url: "/regelwerk", edit: false},
                 {id: 4, name: "Verein", url: "/verein", edit: false},
                 {id: 5, name: "Kontakt", url: "/kontakt", edit: false},
+                {id: 6, name: "Login", url: "/login", edit: false}
             ]
         }
     }

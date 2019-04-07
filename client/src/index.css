@@ -7,13 +7,13 @@ body {
   font-family: "Nunito", "Open Sans", "Times New Roman";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  box-sizing: border-box;
   background: #252829;
   color: #efefef;
   height: 100%
 }
 
- #root {
+#root {
   height: 100%;
 } 
 
