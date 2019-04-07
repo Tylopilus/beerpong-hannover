@@ -15,12 +15,12 @@ class AddPost extends React.Component{
     }
 
     componentDidMount(){
-        this.setState({loading: true})
-        fetch("/api/urls")
-        .then(res => res.json())
-        .then(res => this.setState({
-            loading: false, 
-            list: res.data}))
+        // this.setState({loading: true})
+        // fetch("/api/urls")
+        // .then(res => res.json())
+        // .then(res => this.setState({
+        //     loading: false, 
+        //     list: res.data}))
     }
 
     handleChange = (event) => {
@@ -58,14 +58,14 @@ class AddPost extends React.Component{
     }
 
     handleSubmit = (e) =>{
-        fetch('/api/urls/' + e.id, {
-        method: 'PUT',
-        body: JSON.stringify({"data": e.name}),
-        headers: {
-            "Content-Type": "application/json"
-        }
-        }).then(res => res)
-        .catch(err => {console.log(err); return err});
+        // fetch('/api/urls/' + e.id, {
+        // method: 'PUT',
+        // body: JSON.stringify({"data": e.name}),
+        // headers: {
+        //     "Content-Type": "application/json"
+        // }
+        // }).then(res => res)
+        // .catch(err => {console.log(err); return err});
     }
 
     editType = (e) => {

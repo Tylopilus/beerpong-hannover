@@ -9,17 +9,16 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         {
-            // Creates Option "ClassMethods" with entry "associate" for relations
             // tableName: 'TournamentPlayers',
             // underscored: false,
             //timestamps: true,
-            classMethods: {
-                associate : function(models) {
-                    TournamentPlayers.belongsTo(models.Tournament, {
-                        foreignKey: 'tournament_id',
-                        as: 'TournamentID'
-                    })
-                },
+            
+            // Creates Option "associate" for relations
+            associate : (models) => {
+                TournamentPlayers.belongsTo(models.Tournament, {
+                    foreignKey: 'tournament_id',
+                    as: 'TournamentID'
+                })
             },
         })
 

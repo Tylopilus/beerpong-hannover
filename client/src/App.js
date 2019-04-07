@@ -3,13 +3,15 @@ import React from 'react';
 // import MemeGenerator from "./components/MemeGenerator/MemeGenerator"
 import {BrowserRouter, Route, Switch, Redirect} from "react-router-dom"
 import NavBar from "./components/NavBar/NavBar"
-import AddPost from "./components/Admin/AddPost"
+//import AddPost from "./components/Admin/AddPost"
 import "./index.css"
 import SideDrawer from "./components/SideDrawer/SideDrawer"
 import Backdrop from "./components/Backdrop/Backdrop"
 import Tournament from "./components/Tournaments/Tournaments"
 import Home from "./components/Home/Home"
 import Footer from "./components/Footer/Footer"
+import Login from "./components/Login/Login"
+import AuthenticationController from './components/AuthenticationController/AuthenticationController';
 
 // function App2() {
 //   return(
@@ -48,14 +50,17 @@ class App extends React.Component{
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/turniere" component={Tournament} />
-                <Route path="/admin" component={AddPost} />
+                <Route path="/login" component={Login} />
+                <AuthenticationController>
+                  <Route path="/admin" component={Tournament} />
+                </AuthenticationController>
                 <Route component={() => <Redirect to="/" />} />  
             </Switch>
             <Footer />
           </BrowserRouter>
         </React.Fragment>
-        )
-      }
+      )
+    }
 }
 
 

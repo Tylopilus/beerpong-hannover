@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {User, Tournament} = require('../Models')
+const {User} = require('../Models')
 const config = require('../Config/config')
 
 const jwtSignUser = (user) => {
@@ -69,52 +69,4 @@ module.exports = {
             })
         }
     },
-
-    async postTournament (req, res) {
-        try {
-            const tournament = await Tournament.create(req.body)
-            res.send(
-                tournament.toJSON(),
-            )
-        } catch {
-            res.status(400).send({
-                error: 'Could not create Tournament'
-            })
-        }
-    },
-    async getTournaments (req, res) {
-        try {
-            //return only Tournament Name and ID
-            const tournament = await Tournament.findAll()
-            res.send({
-                tournaments: tournament
-            })
-        }
-        catch {
-            res.status(500).send({
-                error: 'Could not fetch all Tournaments from DB'
-            })
-        }
-    },
-
-    //implement getTournamentsbyID
-    async getTournamentsByID(req, res){
-        try {
-            const tournament = await Tournament.findOne({
-                where: {
-                    id: req.params.id
-                }
-            })
-            if(!tournament)
-                return res.status(500).send({
-                    error: 'Could not find tournament'
-                })
-            res.send(tournament)
-        }
-        catch{
-            res.send({
-                error: 'Oops something went wrong with fetich tournaments'
-            })
-        }
-    }
 }

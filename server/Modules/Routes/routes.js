@@ -1,26 +1,31 @@
 // import {registerPost, registerGet} from '../Controllers/AuthenticationControllers'
+const passport = require('passport')
 const controller = require('../Controllers/AuthenticationController.js')
 const policyController = require('../Policies/AuthenticationContollerPolicy.js')
-
+const TournamentController = require('../Controllers/TournamentController')
+const UserController = require('../Controllers/UserController')
 
 
 module.exports = (app) => {
-    app.get('/status', (req, res) => res.send({message: 'Hello World'}))
 
     app.post('/register', 
         policyController.register, 
-        controller.registerPost)
+        UserController.registerPost)
     
         
     //returns 400: nothing to do
-    app.get('/register', controller.registerGet)
+    app.get('/register', UserController.registerGet)
 
-    app.post('/login', controller.login)
+    app.post('/login', UserController.login)
+    //TODO: implement it in UserController
+    //app.get('/getAuthedUser', UserController.getAuthedUser)
 
-    app.post('/tournaments', controller.postTournament)
-    app.get('/tournaments', controller.getTournaments)
+    app.get('/getAuthedUser', UserController.verifyToken, UserController.getAuthedUser)
+
+    app.post('/tournaments', TournamentController.postTournament)
+    app.get('/tournaments', TournamentController.getTournaments)
     //TODO: implement this
-    app.get('/tournaments/:id', controller.getTournamentsByID)
+    app.get('/tournaments/:id', TournamentController.getTournamentsByID)
     
 
 }
