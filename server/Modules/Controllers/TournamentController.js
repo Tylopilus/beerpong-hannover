@@ -1,4 +1,5 @@
-const {Tournament} = require('../Models')
+const {Tournament, TournamentPlayers} = require('../Models')
+
 
 async function postTournament (req, res) {
     try {
@@ -16,6 +17,7 @@ async function getTournaments (req, res) {
     try {
         //return only Tournament Name and ID
         const tournament = await Tournament.findAll()
+        //const tournament = await Tournament.query("SELECT * FROM `")
         res.send({
             tournaments: tournament
         })
@@ -47,5 +49,46 @@ async function getTournamentsByID(req, res){
     }
 }
 
+//TODO: DEFINATELY NEEDS A NAMECHANGE OMG
+async function getTournamentCurrPlayersByID(req, res){
+    
 
-module.exports = Object.assign({postTournament, getTournaments, getTournamentsByID})
+    // res.send({
+    //     msg: queryString
+    // })
+    try {
+        const tournament = await TournamentPlayers.count({
+            where: {
+                tournament_id: req.params.id
+            }
+        })
+        if(!tournament)
+            return res.status(500).send({
+                error: 'Could not find tournament'
+            })
+        res.status(200).send({
+            "count": tournament})
+    }
+    catch (err){
+        res.send({
+            error: 'Oops something went wrong with fetch tournaments',
+            msg: err
+        })
+    }
+
+}
+
+async function postTournamentPlayers (req, res) {
+    try {
+        const tournament = await TournamentPlayers.create(req.body)
+        res.send(
+            tournament.toJSON(),
+        )
+    } catch (err){
+        res.status(400).send({
+            error: err
+        })
+    }
+}
+
+module.exports = Object.assign({postTournament, getTournaments, getTournamentsByID, getTournamentCurrPlayersByID, postTournamentPlayers})

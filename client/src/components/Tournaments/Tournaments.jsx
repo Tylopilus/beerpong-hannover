@@ -22,7 +22,7 @@ class Tournaments extends React.Component {
     
     render(){
         return(
-            <div style={{height: "100%"}}>
+            <React.Fragment>
                 <div className="tournaments_parallax"></div>
                 <div className="tournament_content">
                     <h1>Anstehende Turniere</h1>
@@ -36,7 +36,7 @@ class Tournaments extends React.Component {
                     </div>
                     <hr />
                     {this.state.tournamentList.map(trnmt => (
-                        <SingleTournament name={trnmt.name} maxPlayerCount={trnmt.maxPlayerCount} date={trnmt.date} />
+                        <SingleTournament key={trnmt.id} name={trnmt.name} maxPlayerCount={trnmt.maxPlayerCount} date={trnmt.date} entryfee={trnmt.entryFee} id={trnmt.id}/>
                     ))}
                 </div>
                 <div className="tournament_content" style={{paddingTop: "80px"}}>
@@ -51,7 +51,7 @@ class Tournaments extends React.Component {
                     </div>
                     <hr />
                 </div>
-            </div>
+            </React.Fragment>
         )
     }
 

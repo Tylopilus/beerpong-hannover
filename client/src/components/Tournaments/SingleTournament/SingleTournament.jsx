@@ -7,13 +7,24 @@ class SingleTournament extends React.Component{
         super()
 
         this.state = {
-            visible: false
+            visible: false,
+            playerCount: 0
         }
     }
     clickHandler(e) {
         this.setState(prevState => (
             prevState.visible = !prevState.visible
         ))
+    }
+
+    componentDidMount(){
+        fetch(`/tournaments/${this.props.id}`)
+        .then(res => res.json())
+        .then(res => {
+            this.setState({
+                playerCount: res.count
+            })
+        })
     }
 
     render(){
@@ -40,12 +51,12 @@ class SingleTournament extends React.Component{
                                 </tr>
                                 <tr>
                                     <td>Wochentag:</td>
-                                    <td>Freitag</td>
+                                    <td>{new Date(this.props.date).getDay()}</td>
                                 </tr>
     
                                 <tr>
                                     <td>Teilnehmer:</td>
-                                    <td>{this.props.currPlayerCount}/{this.props.maxPlayerCount}</td>
+                                    <td>{this.state.playerCount}/{this.props.maxPlayerCount}</td>
                                 </tr>
                                 <tr>
                                     <td>Eintritt:</td>

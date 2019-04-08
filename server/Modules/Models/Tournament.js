@@ -21,6 +21,13 @@ module.exports = (sequelize, DataTypes) => {
                     notNull: { message: "Date is required!"}
                 }
             },
+            entryFee: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                validate: {
+                    notNull: { message: "Entry fee is required"}
+                }
+            },
         })
     return Tournament
 }
