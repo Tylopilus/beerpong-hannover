@@ -26,7 +26,7 @@ class SingleTournament extends React.Component{
                         {this.props.name}
                         </div>
                         <div className="tournamentDate">
-                        29.03.2019
+                        {new Date(this.props.date).toLocaleDateString()}
                         </div>
                     </div>
                     <div className="clear" />

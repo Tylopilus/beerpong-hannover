@@ -31,8 +31,9 @@ class Login extends React.Component {
             password: this.state.password
         })
         .then(res => {
-            localStorage.setItem('jwt', res.data.token); 
+            localStorage.setItem('jwt', res.data.token)
             this.props.history.push("/admin")
+            window.location.reload()
             })
         .catch(err => this.setState({errormsg: err.response.data.error}))
     }

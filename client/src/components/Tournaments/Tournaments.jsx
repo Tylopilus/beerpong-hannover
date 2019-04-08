@@ -36,7 +36,7 @@ class Tournaments extends React.Component {
                     </div>
                     <hr />
                     {this.state.tournamentList.map(trnmt => (
-                        <SingleTournament name={trnmt.Name} maxPlayerCount={trnmt.MaxPlayerCount} currPlayerCount={trnmt.PlayerCount} />
+                        <SingleTournament name={trnmt.name} maxPlayerCount={trnmt.maxPlayerCount} date={trnmt.date} />
                     ))}
                 </div>
                 <div className="tournament_content" style={{paddingTop: "80px"}}>
