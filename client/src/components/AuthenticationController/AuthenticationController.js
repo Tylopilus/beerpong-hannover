@@ -21,7 +21,7 @@ class AuthenticationController extends React.Component {
             })
         })
         .catch(err => {
-            localStorage.removeItem('jtw')
+            localStorage.removeItem('jwt')
             this.props.history.push("/login")
         })
     }
