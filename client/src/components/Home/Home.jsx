@@ -4,7 +4,7 @@ import "./Home.css"
 
 const Home = (props) => (
 
-    <div style={{height: "100vh"}}>
+    <React.Fragment>
         <div className="home__parallax" />
         <div className="home_content">
             <div className="home_h1">
@@ -21,7 +21,7 @@ const Home = (props) => (
             </div>
             <Link to="/turniere" style={{fontSize: "1.5rem", fontWeight: "600"}}>Zu den Turnieren</Link>
         </div>
-    </div>
+    </React.Fragment>
 )
 
 export default Home
