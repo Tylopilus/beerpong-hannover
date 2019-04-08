@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {getJwt} from '../../helpers/jwt'
 
 class Login extends React.Component {
     constructor(props){
@@ -12,7 +13,11 @@ class Login extends React.Component {
         }
     }
 
-
+    componentDidMount(){
+        const jwt = getJwt()
+        if(jwt)
+            this.props.history.push('/admin')
+    }
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value

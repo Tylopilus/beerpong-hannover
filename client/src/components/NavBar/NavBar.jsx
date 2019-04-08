@@ -1,7 +1,8 @@
 import React from "react"
-import {Link, NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 import "./NavBar.css"
 import DrawerToggleButton from "../SideDrawer/DrawerToggleButton"
+import {getMenuEntries} from '../../helpers/populateMenus'
 
 class NavBar extends React.Component {
     constructor(){
@@ -19,7 +20,7 @@ class NavBar extends React.Component {
                 {id: 4, name: "Verein", url: "/verein", edit: false},
                 {id: 5, name: "Kontakt", url: "/kontakt", edit: false},
                 {id: 6, name: "Login", url: "/login", edit: false}
-            ]
+            ],
         }
     }
 
@@ -50,18 +51,37 @@ class NavBar extends React.Component {
     render(){
         //const myArray = [{ id: 1, name: "app" }, { id: 2, name: "info"}]
         //const links = myArray.map(e =>  <Link to={e.name} key={e.id}>{e.name}</Link>)
-        const links = this.state.list.map((r, i) => (
-            <li className="navBar__navigation-item" key={i}>
-                <NavLink 
-                to={r.url} 
-                key={r.id} 
-                exact
-                className="navBar__navigation-item-normal"
-                activeClassName="navBar__navigation-item-active"
-                >
-                    {r.name}
-                </NavLink>
-            </li>))
+        // const links = this.state.list.map((r, i) => {
+        //     if(r.name === 'Login' && jwt){
+        //         return(
+        //             <li className="navBar__navigation-item" key={i}>
+        //                 <NavLink 
+        //                 to={"/admin"} 
+        //                 key={r.id} 
+        //                 exact
+        //                 className="navBar__navigation-item-normal"
+        //                 activeClassName="navBar__navigation-item-active"
+        //                 >
+        //                     {"Admin"}
+        //                 </NavLink>
+        //             </li>
+        //         )
+        //     }
+        //     return(
+        //         <li className="navBar__navigation-item" key={i}>
+        //             <NavLink 
+        //             to={r.url} 
+        //             key={r.id} 
+        //             exact
+        //             className="navBar__navigation-item-normal"
+        //             activeClassName="navBar__navigation-item-active"
+        //             >
+        //                 {r.name}
+        //             </NavLink>
+        //         </li>
+        //     )
+        //     })
+        const links = getMenuEntries()
         return(
             <div className="navBar">
                 <nav className="navBar__navigation">
