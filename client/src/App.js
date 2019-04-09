@@ -56,8 +56,7 @@ class App extends React.Component{
                 <AuthenticationController>
                   <Route path="/admin" component={Admin} />
                 </AuthenticationController>
-                <Route component={() => <Redirect to="/404" />} />  
-                
+                <Route component={() => <Redirect to="/404" />} />
             </Switch>
             <Footer />
           </BrowserRouter>

@@ -1,0 +1,41 @@
+.subNav {
+    width: 100%;
+    background: #313536;
+    height: 56px;
+}
+
+.subNavItems {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.subNavItems ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.subNavItems li {
+    padding: 0 1.5rem;
+}
+
+.subNavItem {
+    font-family: "Nunito";
+    transition:all 0.5s linear;
+    color:#efefef;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:200;
+    font-style: normal;
+    padding-bottom:5px;
+    background: linear-gradient(to right,rgb(255, 255, 255) 0%,rgb(255, 255, 255) 100%);
+    background-size:0px 0px;
+    background-repeat: no-repeat;
+    background-position:50% 85%;
+    text-shadow:0;
+    font-size: 1rem;
+}
