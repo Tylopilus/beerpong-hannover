@@ -5,14 +5,12 @@
 
 .tournamentName {
     float: left;
-    padding: 0;
-    margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .tournamentDate {
     float:right;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .clear {

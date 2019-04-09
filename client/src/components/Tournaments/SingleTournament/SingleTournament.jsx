@@ -21,9 +21,10 @@ class SingleTournament extends React.Component{
         fetch(`/tournaments/${this.props.id}`)
         .then(res => res.json())
         .then(res => {
-            this.setState({
-                playerCount: res.count
-            })
+            if(res.count)
+                this.setState({
+                    playerCount: res.count
+                })
         })
     }
 
@@ -51,7 +52,7 @@ class SingleTournament extends React.Component{
                                 </tr>
                                 <tr>
                                     <td>Wochentag:</td>
-                                    <td>{new Date(this.props.date).getDay()}</td>
+                                    <td>{new Date(this.props.date).toLocaleDateString("de-DE", {weekday: 'long'})}</td>
                                 </tr>
     
                                 <tr>

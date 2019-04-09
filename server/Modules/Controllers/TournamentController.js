@@ -7,16 +7,21 @@ async function postTournament (req, res) {
         res.send(
             tournament.toJSON(),
         )
-    } catch {
+    } catch (err){
         res.status(400).send({
-            error: 'Could not create Tournament'
+            error: 'Could not create Tournament',
+            msg: err
         })
     }
 }
 async function getTournaments (req, res) {
     try {
         //return only Tournament Name and ID
-        const tournament = await Tournament.findAll()
+        const tournament = await Tournament.findAll({
+            order: [
+                ['id', 'DESC'],
+            ]
+        })
         //const tournament = await Tournament.query("SELECT * FROM `")
         res.send({
             tournaments: tournament
