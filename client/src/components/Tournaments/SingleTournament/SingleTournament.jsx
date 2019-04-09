@@ -61,7 +61,7 @@ class SingleTournament extends React.Component{
                                 </tr>
                                 <tr>
                                     <td>Eintritt:</td>
-                                    <td>5€</td>
+                                    <td>{this.props.entryFee}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -1,7 +1,18 @@
+const jwt = require('jsonwebtoken')
 const {Tournament, TournamentPlayers} = require('../Models')
+const config = require('../Config/config')
 
 
 async function postTournament (req, res) {
+    // const token = req.headers['authorization']
+    // await jwt.verify(token, config.authentication.jwtSecret, (err) => {
+    //     if(err){
+    //         res.sendStatus(403)
+    //     } else {
+
+    //     }
+    // })
+    console.log(req.body)
     try {
         const tournament = await Tournament.create(req.body)
         res.send(
@@ -13,6 +24,7 @@ async function postTournament (req, res) {
             msg: err
         })
     }
+
 }
 async function getTournaments (req, res) {
     try {

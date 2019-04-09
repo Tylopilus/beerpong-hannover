@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-const passport = require('passport')
 const {User} = require('../Models')
 const config = require('../Config/config')
 

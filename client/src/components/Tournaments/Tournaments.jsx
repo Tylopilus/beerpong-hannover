@@ -15,9 +15,14 @@ class Tournaments extends React.Component {
     componentDidMount() {
         fetch("/tournaments")
         .then(res => res.json())
-        .then(res => this.setState({
-            tournamentList: res.tournaments
-        }))
+        .then(res => {
+            if(res.error)
+                console.log(res.error)
+            else
+                this.setState({
+                    tournamentList: res.tournaments
+                })
+        })
     }
     
     render(){
@@ -36,7 +41,7 @@ class Tournaments extends React.Component {
                     </div>
                     <hr />
                     {this.state.tournamentList.map(trnmt => (
-                        <SingleTournament key={trnmt.id} name={trnmt.name} maxPlayerCount={trnmt.maxPlayerCount} date={trnmt.date} entryfee={trnmt.entryFee} id={trnmt.id}/>
+                        <SingleTournament key={trnmt.id} name={trnmt.name} maxPlayerCount={trnmt.maxTeamCount} date={trnmt.date} entryfee={trnmt.entryFee} id={trnmt.id}/>
                     ))}
                 </div>
                 <div className="tournament_content" style={{paddingTop: "80px"}}>

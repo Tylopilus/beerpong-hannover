@@ -3,30 +3,22 @@ module.exports = (sequelize, DataTypes) => {
             name: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                validate: {
-                    notNull: { message: "Name is required"}
-                }
+
             },
-            maxPlayerCount: {
+            maxTeamCount: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                validate: {
-                    notNull: { message: "Max Player Count is required"}
-                }
+
             },
             date: {
                 type: DataTypes.DATE,
                 allowNull: false,
-                validate: {
-                    notNull: { message: "Date is required!"}
-                }
+ 
             },
             entryFee: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                validate: {
-                    notNull: { message: "Entry fee is required"}
-                }
+
             },
         })
     return Tournament
