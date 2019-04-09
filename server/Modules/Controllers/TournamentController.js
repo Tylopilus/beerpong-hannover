@@ -17,7 +17,11 @@ async function postTournament (req, res) {
 async function getTournaments (req, res) {
     try {
         //return only Tournament Name and ID
-        const tournament = await Tournament.findAll()
+        const tournament = await Tournament.findAll({
+            order: [
+                ['id', 'DESC'],
+            ]
+        })
         //const tournament = await Tournament.query("SELECT * FROM `")
         res.send({
             tournaments: tournament
