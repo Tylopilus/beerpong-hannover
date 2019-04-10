@@ -12,9 +12,8 @@ export const getMenuEntries = (props) => {
             {id: 6, name: "Login", url: "/login", edit: false}
         ]
     
-    
     const links = list.map((r, i) => {
-        if(r.name === 'Login' && getJwt()){
+        if(r.name === 'Login' && props.isLoggedIn){
             return(
                 <li className="navBar__navigation-item" key={i}>
                     <NavLink 
@@ -23,7 +22,7 @@ export const getMenuEntries = (props) => {
                     exact
                     className="navBar__navigation-item-normal"
                     activeClassName="navBar__navigation-item-active"
-                    onClick={props ? props.clickHandler : undefined}
+                    onClick={!props.navBar ? props.clickHandler : undefined}
                     >
                         {"Admin"}
                     </NavLink>
@@ -38,7 +37,7 @@ export const getMenuEntries = (props) => {
                 exact
                 className="navBar__navigation-item-normal"
                 activeClassName="navBar__navigation-item-active"
-                onClick={props ? props.clickHandler : undefined}
+                onClick={!props.navBar ? props.clickHandler : undefined}
                 >
                     {r.name}
                 </NavLink>

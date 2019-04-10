@@ -4,7 +4,7 @@ import {CreateTournament} from "./Components/CreateTournament/CreateTournament"
 import "./Admin.css"
 
 
-export const Admin = () => {
+export const Admin = (props) => {
     return (
         <div style={{boxSizing: "border-box"}}>
             <div className="subNav">

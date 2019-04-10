@@ -12,6 +12,7 @@ import Home from "./components/Home/Home"
 import Footer from "./components/Footer/Footer"
 import Login from "./components/Login/Login"
 import AuthenticationController from './components/AuthenticationController/AuthenticationController';
+import {getJwt} from "./helpers/jwt"
 
 // function App2() {
 //   return(
@@ -24,7 +25,8 @@ import AuthenticationController from './components/AuthenticationController/Auth
 
 class App extends React.Component{
     state = {
-      sideDrawerOpen: false
+      sideDrawerOpen: false,
+      isLoggedIn: false
     }
     
     DrawerToggleClickHandler = () => {
@@ -32,6 +34,15 @@ class App extends React.Component{
         return prevState.sideDrawerOpen = !prevState.sideDrawerOpen
       })
     }
+    changeLoginState = val => {
+      this.setState({isLoggedIn: val})
+    }
+    componentDidMount(){
+      const jwt = getJwt()
+      if(jwt)
+        this.changeLoginState(true)
+    }
+
 
     render(){
       let backdrop
@@ -43,8 +54,8 @@ class App extends React.Component{
       return(
         <React.Fragment>
           <BrowserRouter>
-            <NavBar clickHandler={this.DrawerToggleClickHandler}/>
-            <SideDrawer show={this.state.sideDrawerOpen} clickHandler={this.DrawerToggleClickHandler}/>
+            <NavBar clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.isLoggedIn} navBar={true}/>
+            <SideDrawer show={this.state.sideDrawerOpen} clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.isLoggedIn}/>
             {backdrop}
             <Switch>
                 <Route exact path="/" component={Home} />
@@ -52,9 +63,9 @@ class App extends React.Component{
                 <Route path="/regelwerk" component={Home} />
                 <Route path="/verein" component={Home} />
                 <Route path="/kontakt" component={Home} />
-                <Route path="/login" component={Login} />
-                <AuthenticationController>
-                  <Route path="/admin" component={Admin} />
+                <Route path="/login" component={() => <Login isLoggedIn={this.changeLoginState}/>} />
+                <AuthenticationController isLoggedIn={this.changeLoginState}>
+                  <Route path="/admin" component={() => <Admin/>} />
                 </AuthenticationController>
                 <Route component={() => <Redirect to="/404" />} />
             </Switch>

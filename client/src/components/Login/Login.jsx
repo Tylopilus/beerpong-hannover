@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter} from "react-router-dom"
 import axios from 'axios'
 import {getJwt} from '../../helpers/jwt'
 
@@ -33,7 +34,8 @@ class Login extends React.Component {
         .then(res => {
             localStorage.setItem('jwt', res.data.token)
             this.props.history.push("/admin")
-            window.location.reload()
+            //window.location.reload()
+            this.props.isLoggedIn(true)
             })
         .catch(err => this.setState({errormsg: err.response.data.error}))
     }
@@ -53,4 +55,4 @@ class Login extends React.Component {
         )
     }
 }
-export default Login
+export default withRouter(Login)

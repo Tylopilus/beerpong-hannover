@@ -81,7 +81,7 @@ class NavBar extends React.Component {
         //         </li>
         //     )
         //     })
-        const links = getMenuEntries()
+        const links = getMenuEntries(this.props)
         return(
             <div className="navBar">
                 <nav className="navBar__navigation">
