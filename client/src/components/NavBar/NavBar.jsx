@@ -13,14 +13,6 @@ class NavBar extends React.Component {
             // loading: false,
             // list: []
              loading: false,
-             list: [
-                {id: 1, name: "Home", url: "/", edit: false},
-                {id: 2, name: "Turniere", url: "/turniere", edit: false},
-                {id: 3, name: "Regelwerk", url: "/regelwerk", edit: false},
-                {id: 4, name: "Verein", url: "/verein", edit: false},
-                {id: 5, name: "Kontakt", url: "/kontakt", edit: false},
-                {id: 6, name: "Login", url: "/login", edit: false}
-            ],
         }
     }
 

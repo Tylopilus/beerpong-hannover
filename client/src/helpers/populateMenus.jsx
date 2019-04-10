@@ -1,6 +1,5 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
-import {getJwt} from './jwt'
 
 export const getMenuEntries = (props) => {
     const list = [
