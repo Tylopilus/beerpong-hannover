@@ -38,7 +38,7 @@ export class CreateTournament extends React.Component {
         else{
             axios({
                 method:'POST',
-                url: "http://localhost:5001/tournaments",
+                url: "/tournaments",
                 headers: {
                     authorization: getJwt()
                 },
