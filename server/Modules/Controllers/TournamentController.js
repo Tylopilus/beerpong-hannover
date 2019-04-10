@@ -3,28 +3,21 @@ const {Tournament, TournamentPlayers} = require('../Models')
 const config = require('../Config/config')
 
 
-async function postTournament (req, res) {
-    // const token = req.headers['authorization']
-    // await jwt.verify(token, config.authentication.jwtSecret, (err) => {
-    //     if(err){
-    //         res.sendStatus(403)
-    //     } else {
-
-    //     }
-    // })
-    console.log(req.body)
-    try {
-        const tournament = await Tournament.create(req.body)
-        res.send(
-            tournament.toJSON(),
-        )
-    } catch (err){
-        res.status(400).send({
-            error: 'Could not create Tournament',
-            msg: err
-        })
-    }
-
+function postTournament (req, res) {
+    const token = req.headers['authorization']
+    jwt.verify(token, config.authentication.jwtSecret, (err) => {
+        if(err){
+            res.sendStatus(403)
+        }
+        else {
+            Promise.resolve(Tournament.create(req.body))
+            .then((tournament) => res.send(tournament.toJSON()))
+            .catch(err => res.status(400).send({
+                error: "Could not create Tournament",
+                msg: err
+            }))
+        }
+    })
 }
 async function getTournaments (req, res) {
     try {

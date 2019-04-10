@@ -71,13 +71,23 @@ function getAuthedUser(req, res) {
         if(err){
             res.sendStatus(403)
         } else {
-            console.log("authData ", authData)
-            res.send(authData)
+            Promise.resolve(
+                User.findOne({
+                    where: {
+                        email: authData.email
+                    }
+                })
+            )
+            .then((user) => {
+                if(user) res.send(authData)
+                else
+                    res.sendStatus(403)
+            })                
+            .catch(() => console.log("Promise error at getAuthedUser"))
         }
-        
     })
-    
 }
+
 
 async function verifyToken (req, res, next) {
     const bearerHeader = req.headers['authorization']
