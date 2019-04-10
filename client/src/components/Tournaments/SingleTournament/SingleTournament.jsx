@@ -30,6 +30,7 @@ class SingleTournament extends React.Component{
 
     render(){
         let visible = this.state.visible ? "150px" : "0px"
+        console.log("entryFee", this.props.entryFee)
         return(
             <div>
                 <div className="tournamentList" >
@@ -61,7 +62,7 @@ class SingleTournament extends React.Component{
                                 </tr>
                                 <tr>
                                     <td>Eintritt:</td>
-                                    <td>{this.props.entryFee}</td>
+                                    <td>{this.props.entryFee} €</td>
                                 </tr>
                             </tbody>
                         </table>

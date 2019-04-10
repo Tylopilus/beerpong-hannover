@@ -8,10 +8,10 @@ export class CreateTournament extends React.Component {
     constructor(){
         super()
         this.state = {
-            tournamentName: undefined,
-            maxTeams: undefined,
-            date: undefined,
-            entryFee: undefined,
+            tournamentName: "",
+            maxTeams: "",
+            date: "",
+            entryFee: "",
             error: ""
         }
     }
@@ -27,14 +27,14 @@ export class CreateTournament extends React.Component {
 
         if(!this.state.tournamentName)
             this.setState({error: "Please enter a name"})
-        // else if (!this.state.maxTeams)
-        //     this.setState({error: "Please enter maximum teams"})
-        // else if (!this.state.date)
-        //     this.setState({error: "Please enter a date"})
-        // else if (new Date(this.state.date).getTime() < new Date(Date.now()).getTime())
-        //     this.setState({error: "Tournament date must be in the future"})
-        // else if (!this.state.entryFee)
-        //     this.setState({error: "Please enter an entry fee"})
+        else if (!this.state.maxTeams)
+            this.setState({error: "Please enter maximum teams"})
+        else if (!this.state.date)
+            this.setState({error: "Please enter a date"})
+        else if (new Date(this.state.date).getTime() < new Date(Date.now()).getTime())
+            this.setState({error: "Tournament date must be in the future"})
+        else if (!this.state.entryFee)
+            this.setState({error: "Please enter an entry fee"})
         else{
             axios({
                 method:'POST',
@@ -49,8 +49,8 @@ export class CreateTournament extends React.Component {
                     entryFee: this.state.entryFee
                 }
             })
-            .catch(err => this.setState({error: err.response.data}))
-            console.log(this.state)
+            .then(() => {this.setState({error: "Tournament successfully added!"})})
+            .catch(err => this.setState({ error: err.response.data.msg.errors[0].message}))
         }
     }
 
@@ -77,7 +77,7 @@ export class CreateTournament extends React.Component {
                             <input type="number" placeholder="entry fee" className="createTypeForm" value={this.state.entryFee} onChange={this.handleChange} name="entryFee"/>
                         </label>
                         <button>Submit</button>
-                        <h2>{this.state.error}</h2>
+                        <h3>{this.state.error}</h3>
                     </form>
                 </div>
             </div>
