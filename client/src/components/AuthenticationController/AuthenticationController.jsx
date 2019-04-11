@@ -4,31 +4,25 @@ import Axios from 'axios';
 import {getJwt} from '../../helpers/jwt'
 
 class AuthenticationController extends React.Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            user: undefined,
-        }
-    }
 
     componentDidMount(){
         const jwt = getJwt();
         Axios.get("/getAuthedUser", {headers: { Authorization: `Bearer ${jwt}`}})
         .then(res => {
-            this.setState({
-                user: res.data.playerName
+            this.props.setUserState({
+                isLoggedIn: true,
+                playerName: res.data.playerName
             })
         })
         .catch(err => {
             localStorage.removeItem('jwt')
-            this.props.isLoggedIn(false)
+            this.props.setUserState({isLoggedIn: false})
             this.props.history.push("/login")
         })
     }
 
     render(){
-        if(this.state.user === undefined){
+        if(this.props.userState.playerName === undefined){
             return(
                 <div style={{marginTop: "56px"}}>
                     <h1>Loading</h1>

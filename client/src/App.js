@@ -26,7 +26,12 @@ import {getJwt} from "./helpers/jwt"
 class App extends React.Component{
     state = {
       sideDrawerOpen: false,
-      isLoggedIn: false
+      
+      user: {
+        isLoggedIn: false,
+        playerName: undefined,
+        authLevel: undefined,
+      }
     }
     
     DrawerToggleClickHandler = () => {
@@ -34,14 +39,14 @@ class App extends React.Component{
         return prevState.sideDrawerOpen = !prevState.sideDrawerOpen
       })
     }
-    changeLoginState = val => {
-      this.setState({isLoggedIn: val})
+    setUserState = val => {
+      this.setState({user: val})
     }
-    componentDidMount(){
-      const jwt = getJwt()
-      if(jwt)
-        this.changeLoginState(true)
-    }
+    // componentDidMount(){
+    //   const jwt = getJwt()
+    //   if(jwt)
+    //     this.setUserState({isLoggedIn: true})
+    // }
 
 
     render(){
@@ -54,8 +59,8 @@ class App extends React.Component{
       return(
         <React.Fragment>
           <BrowserRouter>
-            <NavBar clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.isLoggedIn} navBar={true}/>
-            <SideDrawer show={this.state.sideDrawerOpen} clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.isLoggedIn}/>
+            <NavBar clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.user.isLoggedIn} navBar={true}/>
+            <SideDrawer show={this.state.sideDrawerOpen} clickHandler={this.DrawerToggleClickHandler} isLoggedIn={this.state.user.isLoggedIn}/>
             {backdrop}
             <Switch>
                 <Route exact path="/" component={Home} />
@@ -63,8 +68,8 @@ class App extends React.Component{
                 <Route path="/regelwerk" component={Home} />
                 <Route path="/verein" component={Home} />
                 <Route path="/kontakt" component={Home} />
-                <Route path="/login" component={() => <Login isLoggedIn={this.changeLoginState}/>} />
-                <AuthenticationController isLoggedIn={this.changeLoginState}>
+                <Route path="/login" component={() => <Login isLoggedIn={this.setUserState}/>} />
+                <AuthenticationController setUserState={this.setUserState} userState={this.state.user}>
                   <Route path="/admin" component={() => <Admin/>} />
                 </AuthenticationController>
                 <Route component={() => <Redirect to="/404" />} />

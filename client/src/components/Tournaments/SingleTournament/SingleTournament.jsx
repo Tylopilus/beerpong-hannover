@@ -30,7 +30,6 @@ class SingleTournament extends React.Component{
 
     render(){
         let visible = this.state.visible ? "150px" : "0px"
-        console.log("entryFee", this.props.entryFee)
         return(
             <div>
                 <div className="tournamentList" >

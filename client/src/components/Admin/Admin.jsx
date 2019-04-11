@@ -24,7 +24,6 @@ export const Admin = (props) => {
 }
 
 const SubView = ({match}) => {
-    console.log(match.params.sectionName)
     return(
         <div>
             {/* <h1>{match.params.sectionName}</h1> */}

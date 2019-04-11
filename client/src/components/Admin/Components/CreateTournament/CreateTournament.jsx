@@ -16,6 +16,15 @@ export class CreateTournament extends React.Component {
         }
     }
 
+    clearInput = () => {
+        this.setState({
+            tournamentName: "",
+            maxTeams: "",
+            date: "",
+            entryFee: ""
+        })
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
@@ -49,7 +58,10 @@ export class CreateTournament extends React.Component {
                     entryFee: this.state.entryFee
                 }
             })
-            .then(() => {this.setState({error: "Tournament successfully added!"})})
+            .then(() => {
+                this.setState({error: "Tournament successfully added!"})
+                this.clearInput()
+            })
             .catch(err => this.setState({ error: err.response.data.msg.errors[0].message}))
         }
     }
