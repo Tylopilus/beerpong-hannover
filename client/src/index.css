@@ -14,7 +14,12 @@ body {
 }
 
 #root {
+  box-sizing: border-box;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 } 
 
 
@@ -24,6 +29,12 @@ code {
 }
 p {
   font-family: "Open Sans", "Times New Roman"
+}
+
+.authController {
+  box-sizing: border-box;
+  margin-top: 56px;
+  height: 100%;
 }
 
 .footer {

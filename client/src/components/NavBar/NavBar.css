@@ -8,6 +8,7 @@
     top: 0;
     left: 0;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
 .navBar__navigation {
@@ -78,12 +79,12 @@
     font-size: 1.5rem;
 }
 
-@media (max-width: 930px){
+@media (max-width: 1030px){
     .navBar__navigation-items{
         display: none;
     }
 }
-@media (min-width: 930px){
+@media (min-width: 1031px){
     .navBar__button{
         display: none;
     }

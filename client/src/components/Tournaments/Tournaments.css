@@ -16,6 +16,8 @@
       padding: 0 1rem;
       max-width: 800px;
       margin: auto;
+      padding-bottom: 2.5rem;
+      box-sizing: border-box;
   }
 
   .tournament_content_flex {

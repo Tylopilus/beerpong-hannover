@@ -1,7 +1,7 @@
 .subNav {
     width: 100%;
     background: #313536;
-    height: 56px;
+
 }
 
 .subNavItems {
@@ -10,13 +10,13 @@
     align-items: center;
     justify-content: center;
     padding: 0 1rem;
+    text-align: center;
 }
 
 .subNavItems ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 .subNavItems li {
@@ -38,4 +38,39 @@
     background-position:50% 85%;
     text-shadow:0;
     font-size: 1rem;
+}
+
+@media (max-width: 1019px){
+    .subNav {
+        height: 283px;
+        margin-top: -240px;
+        transition: margin-top 0.2s ease-out;
+        z-index: 0;
+    }
+
+    .subNav.open {
+        margin-top: 0px;
+    }
+
+    .subNavItems {
+        flex-direction: column;
+    }
+
+    .subNavItems li {
+        margin: 1.5rem 0;
+    }
+}
+
+@media (min-width: 1020px){
+    .subNav {
+        height: 56px;
+    }
+
+    .subNavItems ul {
+        display: flex;
+    }
+
+    .subNavIndicator {
+        display: none;
+    }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import {withRouter} from "react-router-dom"
 import Axios from 'axios';
 import {getJwt} from '../../helpers/jwt'
+import "../../index.css"
 
 class AuthenticationController extends React.Component {
 
@@ -11,7 +12,8 @@ class AuthenticationController extends React.Component {
         .then(res => {
             this.props.setUserState({
                 isLoggedIn: true,
-                playerName: res.data.playerName
+                playerName: res.data.playerName,
+                authLevel: "admin"
             })
         })
         .catch(err => {
@@ -24,13 +26,13 @@ class AuthenticationController extends React.Component {
     render(){
         if(this.props.userState.playerName === undefined){
             return(
-                <div style={{marginTop: "56px"}}>
+                <div className="authController">
                     <h1>Loading</h1>
                 </div>
             )
         }
         return(
-            <div style={{marginTop: "56px"}}>
+            <div className="authController">
                 {this.props.children}
             </div>
         )
