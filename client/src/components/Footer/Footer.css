@@ -1,8 +1,15 @@
 .footer-main{
-    margin-top: 50px;
     text-align: center;
     background-color: #313536;
     color: #efefef;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -100;
+}
+
+.footer-main > * {
+    z-index: -100;
 }
 
 .footer-content {

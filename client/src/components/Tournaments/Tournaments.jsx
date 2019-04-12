@@ -29,32 +29,34 @@ class Tournaments extends React.Component {
         return(
             <React.Fragment>
                 <div className="tournaments_parallax"></div>
-                <div className="tournament_content">
-                    <h1>Anstehende Turniere</h1>
-                    <div className="tournament_content_flex">
-                        <div>
-                            <span style={{fontStyle: "italic"}}>Name des Turniers</span>
-                        </div>
-                        <div>
-                        <span style={{fontStyle: "italic"}}>Datum des Turniers</span>
-                        </div>      
-                    </div>
-                    <hr />
-                    {this.state.tournamentList.map(trnmt => (
-                        <SingleTournament key={trnmt.id} name={trnmt.name} maxPlayerCount={trnmt.maxTeamCount} date={trnmt.date} entryFee={trnmt.entryFee} id={trnmt.id}/>
-                    ))}
-                </div>
-                <div className="tournament_content" style={{paddingTop: "80px"}}>
-                    <h1>Vergangene Turniere</h1>
-                    <div className="tournament_content_flex">
-                        <div >
-                            <span style={{fontStyle: "italic"}}>Name des Turniers</span>
-                        </div>
-                        <div>
+                <div className="tournamentParent">
+                    <div className="tournament_content">
+                        <h1>Anstehende Turniere</h1>
+                        <div className="tournament_content_flex">
+                            <div>
+                                <span style={{fontStyle: "italic"}}>Name des Turniers</span>
+                            </div>
+                            <div>
                             <span style={{fontStyle: "italic"}}>Datum des Turniers</span>
-                        </div>      
+                            </div>      
+                        </div>
+                        <hr />
+                        {this.state.tournamentList.map(trnmt => (
+                            <SingleTournament key={trnmt.id} name={trnmt.name} maxPlayerCount={trnmt.maxTeamCount} date={trnmt.date} entryFee={trnmt.entryFee} id={trnmt.id}/>
+                        ))}
                     </div>
-                    <hr />
+                    <div className="tournament_content" style={{paddingTop: "80px"}}>
+                        <h1>Vergangene Turniere</h1>
+                        <div className="tournament_content_flex">
+                            <div >
+                                <span style={{fontStyle: "italic"}}>Name des Turniers</span>
+                            </div>
+                            <div>
+                                <span style={{fontStyle: "italic"}}>Datum des Turniers</span>
+                            </div>      
+                        </div>
+                        <hr />
+                    </div>
                 </div>
             </React.Fragment>
         )

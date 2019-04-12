@@ -1,3 +1,6 @@
+.adminContent > * {
+    background: #252829;
+}
 .subNav {
     width: 100%;
     background: #313536;

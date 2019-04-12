@@ -68,7 +68,7 @@ class App extends React.Component{
                   <Route component={() => <Redirect to="/404" />} />
               </Switch>
               {/* TODO FIX THIS SHIT WTF */}
-              {/* <Footer /> */}
+            <Footer />
           </BrowserRouter>
         </React.Fragment>
       )

@@ -29,7 +29,7 @@ class Admin extends React.Component{
         if(this.state.adminMenuOpen)
             subNavState = ["subNav open"]
         return (
-            <div>
+            <div cöassName="adminContent">
                 <div className={subNavState}>
                     <div className="subNavItems">
                         <div>
