@@ -26,7 +26,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             unique: true
         },
-        password: DataTypes.STRING
+        password: DataTypes.STRING,
+        userGroup: {
+            type: DataTypes.STRING,
+            defaultValue: "User",
+        }
     },
     {
         hooks: {

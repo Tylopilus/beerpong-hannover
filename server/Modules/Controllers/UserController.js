@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken')
-const {User} = require('../Models')
+const {User, UserGroups} = require('../Models')
 const config = require('../Config/config')
 
 const jwtSignUser = (user) => {
@@ -32,6 +32,24 @@ function registerGet (req, res) {
     })
 }
 
+
+async function postUserGroup (req, res) {
+    try {
+        const userGroup = await UserGroups.create(req.body)
+        res.send(userGroup.toJSON())
+    }
+    catch(err) {
+        res.status(400).send({
+            error: "Could not create user group"
+        })
+    }
+}
+
+async function getUserGroups (req, res) {
+    const userGroups = await UserGroups.findAll()
+
+    res.send({userGroups: userGroups})
+}
 
 // login from client
 async function login (req, res) {
@@ -79,7 +97,7 @@ function getAuthedUser(req, res) {
                 })
             )
             .then((user) => {
-                if(user) res.send(authData)
+                if(user) res.send(user.dataValues)
                 else
                     res.sendStatus(403)
             })                
@@ -102,4 +120,4 @@ async function verifyToken (req, res, next) {
     }
 }
 
-module.exports = Object.assign({login, registerGet, registerPost, getAuthedUser, verifyToken})
+module.exports = Object.assign({login, registerGet, registerPost, getAuthedUser, verifyToken, postUserGroup, getUserGroups})

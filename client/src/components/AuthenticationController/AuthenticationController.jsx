@@ -13,7 +13,7 @@ class AuthenticationController extends React.Component {
             this.props.setUserState({
                 isLoggedIn: true,
                 playerName: res.data.playerName,
-                authLevel: "admin"
+                authLevel: res.data.userGroup
             })
         })
         .catch(err => {

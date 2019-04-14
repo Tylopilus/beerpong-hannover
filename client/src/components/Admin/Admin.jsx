@@ -24,12 +24,11 @@ class Admin extends React.Component{
     }
 
     render(){
-        console.log(this.state.adminMenuOpen)
         let subNavState = ["subNav"]
         if(this.state.adminMenuOpen)
             subNavState = ["subNav open"]
         return (
-            <div cöassName="adminContent">
+            <div className="adminContent">
                 <div className={subNavState}>
                     <div className="subNavItems">
                         <div>
@@ -38,7 +37,7 @@ class Admin extends React.Component{
                                 <li><Link to="/admin/create" className="subNavItem" onClick={this.menuToggleClickHandler}>Create</Link></li>
                                 <li><Link to="/admin/manage" className="subNavItem" onClick={this.menuToggleClickHandler}>Manage</Link></li>
                                 <li><Link to="/admin/delete" className="subNavItem" onClick={this.menuToggleClickHandler}>Delete</Link></li>
-                                {this.props.userState.authLevel === "admin" ? <li><Link to="/admin/users" className="subNavItem">Users</Link></li>: null}
+                                {this.props.userState.authLevel === "Admin" ? <li><Link to="/admin/users" className="subNavItem">Users</Link></li>: null}
                             </ul>
                         </div>
                         <div className="subNavIndicator" onClick={this.menuToggleClickHandler}>
