@@ -40,10 +40,10 @@ class Admin extends React.Component{
                                 {this.props.userState.authLevel === "Admin" ? <li><Link to="/admin/users" className="subNavItem">Users</Link></li>: null}
                             </ul>
                         </div>
-                        <div className="subNavIndicator" onClick={this.menuToggleClickHandler}>
-                            {this.state.adminMenuOpen ? <i className="fa fa-chevron-up" style={{fontSize: "26px", cursor: "pointer"}}></i> : <i className="fa fa-chevron-down" style={{fontSize: "26px", cursor: "pointer"}}></i>}
-                        </div>
                     </div>
+                </div>
+                <div className="subNavIndicator" onClick={this.menuToggleClickHandler}>
+                    {this.state.adminMenuOpen ? <i className="fa fa-chevron-up" style={{fontSize: "26px", cursor: "pointer"}}></i> : <i className="fa fa-chevron-down" style={{fontSize: "26px", cursor: "pointer"}}></i>}
                 </div>
                 <Route path="/admin/create" component={CreateTournament}/>
                 <Route path="/admin/manage" component={SubView}/>

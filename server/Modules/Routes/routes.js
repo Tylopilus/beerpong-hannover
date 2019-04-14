@@ -11,18 +11,15 @@ module.exports = (app) => {
     app.post('/register', 
         policyController.register, 
         UserController.registerPost)
-    
-        
-    //returns 400: nothing to do
     app.get('/register', UserController.registerGet)
+    
     app.post('/login', UserController.login)
 
     app.post('/userGroups', UserController.postUserGroup)
     app.get('/userGroups', UserController.getUserGroups)
 
-    
-    //TODO: implement it in UserController
-    //app.get('/getAuthedUser', UserController.getAuthedUser)
+
+
 
     app.get('/getAuthedUser', UserController.verifyToken, UserController.getAuthedUser)
 

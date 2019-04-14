@@ -4,7 +4,9 @@
 .subNav {
     width: 100%;
     background: #313536;
-
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 0px;
 }
 
 .subNavItems {
@@ -43,16 +45,21 @@
     font-size: 1rem;
 }
 
+.subNavIndicator {
+    background: #313536;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
 @media (max-width: 1019px){
     .subNav {
-        height: 283px;
-        margin-top: -240px;
-        transition: margin-top 0.2s ease-out;
-        z-index: 0;
+
     }
 
     .subNav.open {
-        margin-top: 0px;
+        max-height: 300px;
     }
 
     .subNavItems {
