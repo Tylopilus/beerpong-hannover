@@ -5,6 +5,9 @@
 /client/node_modules
 /.pnp
 .pnp.js
+/.cmd
+/server/run.cmd
+/client/run.cmd
 /server/beerponghannover_db.sqlite
 /.vscode
 # testing
@@ -15,6 +18,9 @@
 /client/build
 /server/Modules/Config/AuthenticationKey.js
 /client/.env
+/client/public/google45a0a0f5154446bc.html
+/run-client.cmd.lnk
+/run-server.cmd.lnk
 
 # misc
 .DS_Store

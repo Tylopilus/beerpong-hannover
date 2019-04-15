@@ -74,6 +74,7 @@
 @media (min-width: 1020px){
     .subNav {
         height: 56px;
+        max-height: 56px;
     }
 
     .subNavItems ul {
