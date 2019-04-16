@@ -1,0 +1,50 @@
+.tournamentParent {
+    width: 100%;
+    background: #252829;
+    padding-bottom: 10px;
+    margin-bottom: 80px;
+}
+
+.tournament_content {
+      padding: 0 1rem;
+      max-width: 800px;
+      margin: auto;
+      box-sizing: border-box;
+}
+
+.tournament_content_flex {
+      display: flex;
+      justify-content: space-between;
+}
+
+hr {
+      border: 1px solid #313536;
+}
+
+.tournamentList {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.tournamentName {
+    float: left;
+    font-size: 1.2rem;
+}
+
+.tournamentDate {
+    float:right;
+    font-size: 1.2rem;
+}
+
+.clear {
+    clear: both;
+}
+
+.tournamentContent {
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.tournamentInfo {
+    cursor: pointer;
+}

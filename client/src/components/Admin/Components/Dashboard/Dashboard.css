@@ -1,0 +1,36 @@
+.dashboardMain {
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    height: 100%;
+    padding-top: 1.5rem;
+}
+
+.dashboardMain h1 h2 p{
+    padding: 0px;
+    margin: 0px;
+}
+
+.dashboardMain h1 {
+    font-size: 1rem;
+}
+
+.dashboardSubHeader {
+    width: 90%;
+    background: green;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+}
+
+.dashboardSubContent {
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    background: blue;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    height: 100px;
+}

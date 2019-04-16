@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link, Route, withRouter} from 'react-router-dom'
 import {CreateTournament} from "./Components/CreateTournament/CreateTournament"
+import ManageTournament from "./Components/ManageTournament/ManageTournament"
+import Dashboard from "./Components/Dashboard/Dashboard"
 import "./Admin.css"
 
 
@@ -46,10 +48,10 @@ class Admin extends React.Component{
                     {this.state.adminMenuOpen ? <i className="fa fa-chevron-up" style={{fontSize: "26px", cursor: "pointer"}}></i> : <i className="fa fa-chevron-down" style={{fontSize: "26px", cursor: "pointer"}}></i>}
                 </div>
                 <Route path="/admin/create" component={CreateTournament}/>
-                <Route path="/admin/manage" component={SubView}/>
+                <Route path="/admin/manage" component={ManageTournament}/>
                 <Route path="/admin/delete" component={SubView}/>
                 <Route path="/admin/users" component={SubView}/>
-                <Route path="/admin/dashboard" component={SubView}/>
+                <Route path="/admin/dashboard" component={Dashboard}/>
             </div>
         )
     }
@@ -61,7 +63,15 @@ const SubView = ({match}) => {
     return(
         <div style={{textAlign: "center", height: "100%"}}>
             {/* <h1>{match.params.sectionName}</h1> */}
-            <h1>DASHBOARD</h1>
+            <div className="dashboardMain">
+                <div className="dashboardSubHeader">
+
+                </div>
+                <div className="dashboardSubContent">
+
+                </div>
+            </div>
+
         </div>
     )
 }
