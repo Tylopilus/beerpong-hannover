@@ -101,17 +101,17 @@
     padding: 1.5rem;
 }
 
-table {
+.dashboardTeamsContent table {
     width: 100%;
     border-collapse: collapse;
 }
-td, th {
+.dashboardTeamsContent td, th {
     border: none;
     text-align: left;
     padding: 8px;
   }
   
-  tr:nth-child(even) {
+  .dashboardTeamsContent tr:nth-child(even) {
     background-color: #313536;
   }
 
