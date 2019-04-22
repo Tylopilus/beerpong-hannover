@@ -16,7 +16,7 @@ export const getMenuEntries = (props) => {
             return(
                 <li className="navBar__navigation-item" key={i}>
                     <NavLink 
-                    to={"/admin"} 
+                    to={"/admin/dashboard"} 
                     key={r.id} 
                     exact
                     className="navBar__navigation-item-normal"
