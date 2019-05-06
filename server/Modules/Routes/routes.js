@@ -36,4 +36,6 @@ module.exports = (app) => {
 */
     app.post('/upload', UploadController.postUpload)
     app.get('/upload', UploadController.getUpload)
+    app.get('/getData', UploadController.getData)
+    app.get('/getGroups', UploadController.getGroups)
 }
