@@ -5,7 +5,7 @@ TODO: Add verification from JWT
 const jwt = require('jsonwebtoken')
 const path = require('path')
 const config = require('../Config/config')
-const excelToJson = require('convert-excel-to-json');
+const dataHandler = require('../../DataHandler/dataHandler.js')
 const fs = require('fs')
 
 function postUpload(req, res){
@@ -40,61 +40,6 @@ function getData (req, res) {
     res.sendFile(path.join(__dirname + '../../../uploads/data.xlsx'))
 }
 
-
-function makeJSON(input){
-    const result = excelToJson({
-        sourceFile: input,
-        header:{
-            rows: 1
-        }
-    });
-    return result
-}
-
-function createGroupsWithObjects(data){
-    const maxGroups = 8
-    const groups = {}
-    data.Worksheet.forEach((group, i) => {
-        const groupName = `Gruppe${i%maxGroups+1}`
-        if(groups[groupName]){
-            const size = Object.keys(groups[groupName]).length
-            groups[groupName] = Object.assign({[`Team${size+1}`]: {
-                TeamName: group.C,
-                Player1: group.D + " " + group.E,
-                Player2: group.F + " " + group.G
-            }}, groups[groupName])
-        }
-        else
-            groups[groupName] = Object.assign({[`Team1`]: {
-                TeamName: group.C,
-                Player1: group.D + " " + group.E,
-                Player2: group.F + " " + group.G
-            }}, groups[groupName])
-    })
-    return groups
-}
-
-function createGroupsWithArrays(data){
-    const maxGroups = 8
-    const groups = {}
-    data.Worksheet.forEach((group, i) => {
-        const groupName = `Gruppe${i%maxGroups+1}`
-        if(groups[groupName])
-            groups[groupName].push({
-                TeamName: group.C,
-                Player1: group.D + " " + group.E,
-                Player2: group.F + " " + group.G
-            })
-        else
-            groups[groupName] = [{
-                Teamname: group.C,
-                Player1: group.D + " " + group.E,
-                Player2: group.F + " " + group.G
-            }]
-    })
-    return groups
-}
-
 async function getGroups (req, res) {
     let file = null
     //check if the data.xlsx exists
@@ -110,7 +55,7 @@ async function getGroups (req, res) {
     //should not happen
     if (file === null)
         return res.status(500).send('tournament data not found!')
-    const groups = createGroupsWithObjects(makeJSON(file))
+    const groups = dataHandler.createGroupsWithObjects(file)
     res.send(groups)
 }
 
