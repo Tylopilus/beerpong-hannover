@@ -20,7 +20,7 @@ function postUpload(req, res){
     
     const file = req.files.file
     console.log(req.files)
-    file.mv(`${__dirname}../../../../client/public/uploads/data.xlsx`, err => {
+    file.mv(`${__dirname}../../../uploads/data.xlsx`, err => {
         if(err){
             console.error(err)
             return res.status(500).send(err)
