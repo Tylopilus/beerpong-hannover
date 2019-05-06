@@ -35,9 +35,10 @@ function createGroupsWithObjects(data){
 }
 
 function createGroupsWithArrays(data){
+    const json = makeJSON(data)
     const maxGroups = 8
     const groups = {}
-    data.Worksheet.forEach((group, i) => {
+    json.Worksheet.forEach((group, i) => {
         const groupName = `Gruppe${i%maxGroups+1}`
         if(groups[groupName])
             groups[groupName].push({
@@ -55,4 +56,4 @@ function createGroupsWithArrays(data){
     return groups
 }
 
-module.exports = {makeJSON, createGroupsWithArrays, createGroupsWithObjects}
+module.exports = {createGroupsWithArrays, createGroupsWithObjects}
