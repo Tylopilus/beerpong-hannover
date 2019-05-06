@@ -4,10 +4,12 @@ const app = express()
 const morgan = require('morgan')
 const config = require('./Modules/Config/config')
 const {sequelize} = require('./Modules/Models/')
+const fileUpload = require('express-fileupload')
 
 app.use(morgan('combined'))
 app.use(cors())
 app.use(express.json())
+app.use(fileUpload())
 
 //for old sake i will keep it. Thats how I started
 // const customers = [

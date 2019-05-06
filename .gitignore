@@ -16,6 +16,7 @@
 # production
 /build
 /client/build
+/client/public/uploads
 /server/Modules/Config/AuthenticationKey.js
 /client/.env
 /client/public/google45a0a0f5154446bc.html

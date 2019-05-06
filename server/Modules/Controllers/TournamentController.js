@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const {Tournament, TournamentPlayers} = require('../Models')
 const config = require('../Config/config')
 
-
+//posts tournaments into db
 function postTournament (req, res) {
     const token = req.headers['authorization']
     jwt.verify(token, config.authentication.jwtSecret, (err) => {
@@ -19,6 +19,8 @@ function postTournament (req, res) {
         }
     })
 }
+
+//returns json object of all tournaments
 async function getTournaments (req, res) {
     try {
         //return only Tournament Name and ID
@@ -38,7 +40,7 @@ async function getTournaments (req, res) {
         })
     }
 }
-//implement getTournamentsbyID
+//retourns single tournament info by ID
 async function getTournamentsByID(req, res){
     try {
         const tournament = await Tournament.findOne({
@@ -60,6 +62,7 @@ async function getTournamentsByID(req, res){
 }
 
 //TODO: DEFINATELY NEEDS A NAMECHANGE OMG
+//gets players of registered Tournament
 async function getTournamentCurrPlayersByID(req, res){
     
 
@@ -88,6 +91,7 @@ async function getTournamentCurrPlayersByID(req, res){
 
 }
 
+//adds new Team to specified tournament
 async function postTournamentPlayers (req, res) {
     try {
         const tournament = await TournamentPlayers.create(req.body)

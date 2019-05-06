@@ -4,6 +4,7 @@ const controller = require('../Controllers/AuthenticationController.js')
 const policyController = require('../Policies/AuthenticationContollerPolicy.js')
 const TournamentController = require('../Controllers/TournamentController')
 const UserController = require('../Controllers/UserController')
+const UploadController = require('../Controllers/UploadController')
 
 
 module.exports = (app) => {
@@ -30,5 +31,9 @@ module.exports = (app) => {
     //app.get('/tournaments/:id', TournamentController.getTournamentsByID)
     app.get('/tournaments/:id', TournamentController.getTournamentCurrPlayersByID)
     
-
+/*
+    Upload data-excel
+*/
+    app.post('/upload', UploadController.postUpload)
+    app.get('/upload', UploadController.getUpload)
 }
