@@ -105,4 +105,11 @@ async function postTournamentPlayers (req, res) {
     }
 }
 
-module.exports = Object.assign({postTournament, getTournaments, getTournamentsByID, getTournamentCurrPlayersByID, postTournamentPlayers})
+async function postDeleteTournaments (req, res) {
+    console.log('trying to delete tournaments')
+    Promise.resolve(Tournament.destroy({where: {}}))
+    .then(() => res.status(200).send('successfully destroyed tournamentList'))
+    .catch(err => res.status(400).send('error deleting tournaments'))
+}
+
+module.exports = Object.assign({postTournament, getTournaments, getTournamentsByID, getTournamentCurrPlayersByID, postTournamentPlayers, postDeleteTournaments})
