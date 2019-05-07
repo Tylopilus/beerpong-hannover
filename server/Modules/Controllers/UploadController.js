@@ -25,10 +25,12 @@ function postUpload(req, res){
     file.mv(`${__dirname}../../../uploads/data.xlsx`, err => {
         if(err){
             console.error(err)
-            return res.status(500).send(err)
+            res.status(500).send(err)
         }
+        else
+            res.status(200).send({msg: 'file uploaded'})
     })
-    res.status(200).send({msg: 'file uploaded'})
+    
 }
 
 function getUpload (req, res) {
@@ -56,7 +58,27 @@ async function getGroups (req, res) {
     if (file === null)
         return res.status(500).send('tournament data not found!')
     const groups = dataHandler.createGroupsWithObjects(file)
+
     res.send(groups)
 }
 
-module.exports = Object.assign({postUpload, getUpload, getData, getGroups})
+async function getTeams (req, res) {
+    let file = null
+    try{
+        await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
+        file = path.join(__dirname + "../../../uploads/data.xlsx")
+    }
+    catch (err){
+        console.error(err)
+        res.status(500).send('tournament data not found!')
+    }
+
+    //TODO: Look up how the server handles the upper function
+
+    const teams = dataHandler.createTeamList(file)
+
+    teams.forEach(e => console.log(e))
+    res.send(teams)
+}
+
+module.exports = Object.assign({postUpload, getUpload, getData, getGroups, getTeams})
