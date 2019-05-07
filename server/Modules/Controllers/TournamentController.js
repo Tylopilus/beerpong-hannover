@@ -92,6 +92,7 @@ async function getTournamentCurrPlayersByID(req, res){
 }
 
 //adds new Team to specified tournament
+//TODO: needs to be checked if deployed
 async function postTournamentPlayers (req, res) {
     try {
         const tournament = await TournamentPlayers.create(req.body)
@@ -105,6 +106,7 @@ async function postTournamentPlayers (req, res) {
     }
 }
 
+//TODO: definately needs to be checked by user permission
 async function postDeleteTournaments (req, res) {
     console.log('trying to delete tournaments')
     Promise.resolve(Tournament.destroy({where: {}}))

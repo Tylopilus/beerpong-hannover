@@ -26,7 +26,11 @@ module.exports = (app) => {
 
     app.post('/tournaments', TournamentController.postTournament)
     app.get('/tournaments', TournamentController.getTournaments)
+
+    //TODO: dont deploy this on go live!!!!
     app.post('/enterTournament/:id', TournamentController.postTournamentPlayers)
+
+    
     app.post('/deleteTournaments', TournamentController.postDeleteTournaments)
     //TODO: implement this
     //app.get('/tournaments/:id', TournamentController.getTournamentsByID)

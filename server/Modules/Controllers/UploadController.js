@@ -106,6 +106,8 @@ async function getTeams (req, res) {
     return teams
 }
 
+//ugly af
+//TODO: merge this with normal getTeams plx
 async function getInternalTeams () {
     let file = null
     try{
