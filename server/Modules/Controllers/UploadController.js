@@ -77,8 +77,7 @@ async function getTeams (req, res) {
     //TODO: Look up how the server handles the upper function
 
     const teams = dataHandler.createTeamList(file)
-
-    teams.forEach(e => console.log(e))
+    
     res.send(teams)
 }
 
