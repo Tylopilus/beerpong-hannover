@@ -25,10 +25,12 @@ function postUpload(req, res){
     file.mv(`${__dirname}../../../uploads/data.xlsx`, err => {
         if(err){
             console.error(err)
-            return res.status(500).send(err)
+            res.status(500).send('file upload failed. Contact System Admin')
         }
+        else
+            res.status(200).send({msg: 'file uploaded'})
     })
-    res.status(200).send({msg: 'file uploaded'})
+    
 }
 
 function getUpload (req, res) {
@@ -43,6 +45,7 @@ function getData (req, res) {
 async function getGroups (req, res) {
     let file = null
     //check if the data.xlsx exists
+    console.log(__dirname)
     try{
         await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
         file = path.join(__dirname + "../../../uploads/data.xlsx")
