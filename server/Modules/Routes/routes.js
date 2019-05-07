@@ -38,4 +38,5 @@ module.exports = (app) => {
     app.get('/upload', UploadController.getUpload)
     app.get('/getData', UploadController.getData)
     app.get('/getGroups', UploadController.getGroups)
+    app.get('/getTeams', UploadController.getTeams)
 }
