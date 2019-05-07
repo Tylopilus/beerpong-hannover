@@ -10,6 +10,7 @@
 /client/run.cmd
 /server/beerponghannover_db.sqlite
 /.vscode
+/server/upload.html
 # testing
 /coverage
 
@@ -23,7 +24,6 @@
 /client/public/google45a0a0f5154446bc.html
 /run-client.cmd.lnk
 /run-server.cmd.lnk
-/server/upload.html
 # misc
 .DS_Store
 .env.local
