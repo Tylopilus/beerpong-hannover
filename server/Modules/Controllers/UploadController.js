@@ -25,7 +25,7 @@ function postUpload(req, res){
     file.mv(`${__dirname}../../../uploads/data.xlsx`, err => {
         if(err){
             console.error(err)
-            res.status(500).send(err)
+            res.status(500).send('Error at file upload. Please contact system administrator')
         }
         else
             res.status(200).send({msg: 'file uploaded'})
