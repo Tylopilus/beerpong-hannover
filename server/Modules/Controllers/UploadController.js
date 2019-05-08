@@ -35,7 +35,8 @@ function postUpload(req, res){
                 entryFee: 5
             }))
             .then((tournament) => {
-                Promise.resolve(getInternalTeams())
+                //Promise.resolve(getInternalTeams())
+                Promise.resolve(getTeams(null, null, file))
                 .then(teams => {
                     teams.forEach(e => {
                          TournamentPlayers.create({
@@ -87,41 +88,30 @@ async function getGroups (req, res) {
     res.send(groups)
 }
 
-async function getTeams (req, res) {
+async function getTeams (req, res, data) {
     let file = null
-    try{
-        await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
-        file = path.join(__dirname + "../../../uploads/data.xlsx")
+    if(data !== null){
+        
+        try{
+            await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
+            file = path.join(__dirname + "../../../uploads/data.xlsx")
+        }
+        catch (err){
+            console.error(err)
+            if(res)
+                return res.status(500).send('tournament data not found!')
+            return err
+        }
     }
-    catch (err){
-        console.error(err)
-        res.status(500).send('tournament data not found!')
-    }
+    else
+        file = data
 
     //TODO: Look up how the server handles the upper function
 
     const teams = dataHandler.createTeamList(file)
 
-    res.send(teams)
-    return teams
-}
-
-//ugly af
-//TODO: merge this with normal getTeams plx
-async function getInternalTeams () {
-    let file = null
-    try{
-        await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
-        file = path.join(__dirname + "../../../uploads/data.xlsx")
-    }
-    catch (err){
-        console.error(err)
-        return ('tournament data not found!')
-    }
-
-    //TODO: Look up how the server handles the upper function
-
-    const teams = dataHandler.createTeamList(file)
+    if(res)
+        res.send(teams)
     return teams
 }
 
