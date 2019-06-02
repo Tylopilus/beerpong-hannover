@@ -58,7 +58,10 @@ function createGroupsWithArrays(data){
 
 function createTeamList(data){
     const json = makeJSON(data)
-    teams = []
+    const teamList = {
+        teamList: []
+    }
+    const teams = []
     json.Worksheet.forEach((group, i) => {
         teams.push({
             Teamname: group.C,
@@ -66,8 +69,9 @@ function createTeamList(data){
             Player2: group.F + " " + group.G
         })
     })
-
-    return teams
+    
+    teamList.teamList = teams
+    return teamList
 }
 
 module.exports = {createGroupsWithArrays, createGroupsWithObjects, createTeamList}

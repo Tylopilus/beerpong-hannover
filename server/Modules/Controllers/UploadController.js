@@ -91,7 +91,6 @@ async function getGroups (req, res) {
 async function getTeams (req, res, data) {
     let file = null
     if(data !== null){
-        
         try{
             await fs.promises.access(path.join(__dirname + "../../../uploads/data.xlsx"))
             file = path.join(__dirname + "../../../uploads/data.xlsx")

@@ -1,0 +1,109 @@
+.dashboardMain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 1.5rem;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    margin-bottom: 80px;
+    background: #393b3b;
+}
+
+.dashboardMain h1, h2, p, hr{
+    padding: 0px;
+    margin: 0px;
+}
+
+.dashboardMain h1 {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboardDescriptor {
+    font-size: 0.8rem;
+}
+
+
+.dashboardSubHeader {
+    width: 100%;
+    background: #313536;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.dashboardSubMeta {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboardSubHeader {
+    width: 100%;
+    background: #313536;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.dashboardItem {
+    padding: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+.dashboardContent {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.dashboardTeams {
+    background: #393b3b;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.dashboardTeamsContent {
+    padding: 1.5rem;
+}
+
+.dashboardTeamsContent table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.dashboardTeamsContent td, th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .dashboardTeamsContent tr:nth-child(even) {
+    background-color: #313536;
+  }
+
+
+
+
+@media (min-width: 1013px){
+
+    .dashboardTeams {
+        width: 40%;
+        height: auto;
+    }
+    .dashboardContent {
+        justify-content: center;
+    }
+}

@@ -2,28 +2,12 @@ import React from "react"
 import "./Dashboard.css"
 
 class Dashboard extends React.Component {
+    
+
+
     render(){
         return(
             <div className="dashboardMain">
-                <div className="dashboardInfo">
-                    <div className="dashboardSubHeader">
-                        <h1>Anstehendes Turnier</h1>
-                    </div>
-                    <div className="dashboardSubMeta">
-                        <div className="dashboardItem">
-                            <label className="dashboardDescriptor">name</label>
-                            <p>Test Turnier Hanomacke #1 2019</p>
-                        </div>
-                        <div className="dashboardItem">
-                            <label className="dashboardDescriptor">teams</label>
-                            <p>20/64 (31.3%)</p>
-                        </div>
-                        <div className="dashboardItem">
-                            <label className="dashboardDescriptor">registration</label>
-                            <p>open</p>
-                        </div>
-                    </div>
-                </div>
                 <div className="dashboardContent">
                     <div className="dashboardTodo">
                         <div className="dashboardSubHeader"><h1>Todo</h1></div>
@@ -66,43 +50,7 @@ class Dashboard extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="dashboardTeams">
-                        <div className="dashboardSubHeader"><h1>Teams</h1></div>
-                        <div className="dashboardTeamsContent">
-                            <table>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Teamname</th>
-                                    <th>Spieler1</th>
-                                    <th>Spieler2</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Afro Boys</td>
-                                    <td>Helge</td>
-                                    <td>Fred</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Afro Boys2</td>
-                                    <td>Helge</td>
-                                    <td>Fred</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Afro Boys3</td>
-                                    <td>Helge</td>
-                                    <td>Fred</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Afro Boys4</td>
-                                    <td>Helge</td>
-                                    <td>Fred</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         )
