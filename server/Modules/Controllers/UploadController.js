@@ -83,7 +83,8 @@ async function getGroups (req, res) {
     //should not happen
     if (file === null)
         return res.status(500).send('tournament data not found!')
-    const groups = dataHandler.createGroupsWithObjects(file)
+    //const groups = dataHandler.createGroupsWithObjects(file)
+    const groups = dataHandler.createGroupsWithArrays(file)
 
     res.send(groups)
 }

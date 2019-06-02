@@ -34,21 +34,49 @@ function createGroupsWithObjects(data){
     return groups
 }
 
+// function createGroupsWithArrays(data){
+//     const json = makeJSON(data)
+//     const maxGroups = 8
+//     const groups = {}
+//     json.Worksheet.forEach((group, i) => {
+//         const groupName = `Gruppe${i%maxGroups+1}`
+//         if(groups[groupName])
+//             groups[groupName].push({
+//                 TeamName: group.C,
+//                 Player1: group.D + " " + group.E,
+//                 Player2: group.F + " " + group.G
+//             })
+//         else
+//             groups[groupName] = [{
+//                 Teamname: group.C,
+//                 Player1: group.D + " " + group.E,
+//                 Player2: group.F + " " + group.G
+//             }]
+//     })
+//     return groups
+// }
+
 function createGroupsWithArrays(data){
     const json = makeJSON(data)
     const maxGroups = 8
-    const groups = {}
+    const groupList = []
+    const groups = []
     json.Worksheet.forEach((group, i) => {
+
         const groupName = `Gruppe${i%maxGroups+1}`
-        if(groups[groupName])
-            groups[groupName].push({
+        const TeamName = group.C
+
+        if(groups[i%maxGroups])
+            groups[i%maxGroups].push({
+                GroupName: groupName,
                 TeamName: group.C,
                 Player1: group.D + " " + group.E,
                 Player2: group.F + " " + group.G
             })
         else
-            groups[groupName] = [{
-                Teamname: group.C,
+            groups[i%maxGroups] = [{
+                GroupName: groupName,
+                TeamName: group.C,
                 Player1: group.D + " " + group.E,
                 Player2: group.F + " " + group.G
             }]

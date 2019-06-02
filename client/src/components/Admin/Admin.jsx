@@ -4,6 +4,7 @@ import {CreateTournament} from "./Components/CreateTournament/CreateTournament"
 import ManageTournament from "./Components/ManageTournament/ManageTournament"
 import Dashboard from "./Components/Dashboard/Dashboard"
 import Teams from "./Components/Teams/Teams"
+import Groups from "./Components/Groups/Groups"
 import "./Admin.css"
 
 
@@ -40,10 +41,7 @@ class Admin extends React.Component{
                                 <li><Link to="/admin/dashboard" className="subNavItem" onClick={this.menuToggleClickHandler}>ToDo</Link></li>
                                 <li><Link to ="/admin/teams" className="subNavItem" onClick={this.menuToggleClickHandler}>Teams</Link></li>
                                 <li><Link to ="/admin/groups" className="subNavItem" onClick={this.menuToggleClickHandler}>Gruppen</Link></li>
-                                <li><Link to="/admin/create" className="subNavItem" onClick={this.menuToggleClickHandler}>Create</Link></li>
-                                <li><Link to="/admin/manage" className="subNavItem" onClick={this.menuToggleClickHandler}>Manage</Link></li>
-                                <li><Link to="/admin/delete" className="subNavItem" onClick={this.menuToggleClickHandler}>Delete</Link></li>
-                                {this.props.userState.authLevel === "Admin" ? <li><Link to="/admin/users" className="subNavItem">Users</Link></li>: null}
+                                {this.props.userState.authLevel === "Admin" ? <li><Link to="/admin/delete" className="subNavItem">Delete</Link></li>: null}
                             </ul>
                         </div>
                     </div>
@@ -57,6 +55,7 @@ class Admin extends React.Component{
                 <Route path="/admin/users" component={SubView}/>
                 <Route path="/admin/dashboard" component={Dashboard}/>
                 <Route path="/admin/teams" component={Teams}/>
+                <Route path="/admin/groups" component={Groups}/>
             </div>
         )
     }
