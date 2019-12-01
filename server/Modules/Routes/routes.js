@@ -13,6 +13,7 @@ module.exports = (app) => {
         policyController.register, 
         UserController.registerPost)
     app.get('/register', UserController.registerGet)
+    app.get('/users', UserController.getUsers)
     
     app.post('/login', UserController.login)
 

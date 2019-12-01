@@ -120,4 +120,8 @@ async function verifyToken (req, res, next) {
     }
 }
 
-module.exports = Object.assign({login, registerGet, registerPost, getAuthedUser, verifyToken, postUserGroup, getUserGroups})
+async function getUsers(req, res) {
+    const users = await User.findAll()
+    res.send({users: users})
+}
+module.exports = Object.assign({login, registerGet, registerPost, getAuthedUser, verifyToken, postUserGroup, getUserGroups, getUsers})
