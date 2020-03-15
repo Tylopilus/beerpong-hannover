@@ -30,6 +30,8 @@ async function getTournaments (req, res) {
             ]
         })
         //const tournament = await Tournament.query("SELECT * FROM `")
+
+
         res.send({
             tournaments: tournament
         })
@@ -52,7 +54,23 @@ async function getTournamentsByID(req, res){
             return res.status(500).send({
                 error: 'Could not find tournament'
             })
-        res.send(tournament)
+        //console.log(tournament)
+        
+        const teams = await TournamentPlayers.findAll({
+            where: {
+                tournament_id : req.params.id
+            }
+        })
+        //console.log(teams)
+
+        //const arr = []
+        const arr = 
+            {   
+                tournament: tournament, 
+                teams: teams
+            }
+        console.log(arr)
+        res.send(arr)
     }
     catch{
         res.send({

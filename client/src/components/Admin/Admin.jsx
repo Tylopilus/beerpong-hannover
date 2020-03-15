@@ -38,6 +38,7 @@ class Admin extends React.Component{
                     <div className="subNavItems">
                         <div>
                             <ul>
+                                <li><Link to="/admin/create" className="subNavItem" onClick={this.menuToggleClickHandler}>Create</Link></li>
                                 <li><Link to="/admin/dashboard" className="subNavItem" onClick={this.menuToggleClickHandler}>ToDo</Link></li>
                                 <li><Link to ="/admin/teams" className="subNavItem" onClick={this.menuToggleClickHandler}>Teams</Link></li>
                                 <li><Link to ="/admin/groups" className="subNavItem" onClick={this.menuToggleClickHandler}>Gruppen</Link></li>

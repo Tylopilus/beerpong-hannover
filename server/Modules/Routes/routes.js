@@ -34,8 +34,8 @@ module.exports = (app) => {
     
     app.post('/deleteTournaments', TournamentController.postDeleteTournaments)
     //TODO: implement this
-    //app.get('/tournaments/:id', TournamentController.getTournamentsByID)
-    app.get('/tournaments/:id', TournamentController.getTournamentCurrPlayersByID)
+    app.get('/tournaments/:id', TournamentController.getTournamentsByID)
+    //app.get('/tournaments/:id', TournamentController.getTournamentCurrPlayersByID)
     
 /*
     Upload data-excel
